@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({ limit: "1mb", extended: true }));
 app.use(cors());
 app.use('/cars', postRouters)
 app.get('/', (req, res) => {
-    res.send('server running')
+    res.send('server running fine')
 });
 
 

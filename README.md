@@ -12,3 +12,4 @@
 
 6. Run npm start
 7. Server should be running at PORT 5000, You can change it in the index.js
+8. as The initial data was stored in the database please add some posts before trying to search in the front end

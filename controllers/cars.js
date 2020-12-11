@@ -20,4 +20,12 @@ export const createNewCar = async (req, res) => {
     }
 
 }
+export const updateCar = async (req, res) => {
+    const { id: _id } = req.params;
+    const car = req.body;
+    if (!mongoose.Types.ObjectId.isValid(_id)) return res.status(404).send('Invalid Id');
+    const updatedCar = await PostDetails.findByIdAndUpdate(_id, car, { new: true });
+    res.json(updatedCar);
+
+}
 

@@ -12,6 +12,9 @@ app.use(bodyParser.json({ limit: "1mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "1mb", extended: true }));
 app.use(cors());
 app.use('/cars', postRouters)
+app.get('/', (req, res) => {
+    res.send('server running')
+});
 
 
 const CONNECTION_URL = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.bqcea.mongodb.net/BSCarList?retryWrites=true&w=majority`;

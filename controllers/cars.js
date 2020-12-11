@@ -1,3 +1,4 @@
+import mongoose from 'mongoose';
 import PostDetails from '../models/postSchema.js'
 
 export const getCarList = async (req, res) => {
@@ -26,6 +27,13 @@ export const updateCar = async (req, res) => {
     if (!mongoose.Types.ObjectId.isValid(_id)) return res.status(404).send('Invalid Id');
     const updatedCar = await PostDetails.findByIdAndUpdate(_id, car, { new: true });
     res.json(updatedCar);
+
+}
+export const deleteCar = async (req, res) => {
+    const { id } = req.params;
+    if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send('Invalid Id');
+    await PostDetails.findByIdAndRemove(id);
+    res.json({ message: 'Vehicle Deleted' });
 
 }
 
